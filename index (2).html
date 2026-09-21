@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Оборот Exchange — обмен криптовалюты</title>
+<meta name="description" content="Оборот Exchange — быстрый обмен USDT, BTC и ETH на наличные рубли в Москве.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1677ff;--blue2:#0c5ff0;--red:#ef3340;--ink:#0a1020;--muted:#aeb8cc;
+  --glass:rgba(15,25,50,.60);--line:rgba(255,255,255,.16);--white:#fff;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#fff;background:#08101f}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+.hero{min-height:100vh;position:relative;overflow:hidden;background:
+ linear-gradient(90deg,rgba(4,10,22,.84) 0%,rgba(4,10,22,.62) 38%,rgba(4,10,22,.18) 72%,rgba(4,10,22,.30) 100%),
+ linear-gradient(180deg,rgba(4,8,18,.18),rgba(4,8,18,.55)),
+ url("assets/moscow-bg.jpg") center/cover no-repeat fixed}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:220px;background:linear-gradient(transparent,#08101f);pointer-events:none}
+.container{width:min(1240px,calc(100% - 48px));margin:auto;position:relative;z-index:2}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.12)}
+.logo{display:flex;align-items:center;gap:12px;font-family:Manrope;font-weight:800}
+.logo-mark{width:40px;height:40px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff 0 42%,#1e80ff 42% 66%,#ef3340 66%)}
+.logo-mark:after{content:"";position:absolute;width:14px;height:52px;left:13px;top:-6px;background:rgba(255,255,255,.78);transform:rotate(25deg);border-radius:10px}
+.logo b{font-size:20px;letter-spacing:-.04em}.logo small{display:block;font-size:9px;letter-spacing:.25em;opacity:.65;margin-top:-2px}
+.navlinks{display:flex;gap:30px;color:#dce5f7;font-size:14px}.navlinks a{opacity:.88}.navlinks a:hover{opacity:1}
+.navcta{background:var(--blue);padding:13px 21px;border-radius:999px;font-weight:700;box-shadow:0 10px 30px rgba(22,119,255,.28)}
+.hero-grid{min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center;padding:55px 0 120px}
+.badge{display:inline-flex;gap:9px;align-items:center;padding:8px 13px;border:1px solid rgba(255,255,255,.20);background:rgba(16,33,64,.45);backdrop-filter:blur(12px);border-radius:999px;color:#e9f1ff;font-size:13px}
+.badge i{width:8px;height:8px;border-radius:50%;background:#2df19a;box-shadow:0 0 14px #2df19a}
+h1{font-family:Manrope;font-size:clamp(46px,5.5vw,78px);line-height:.98;letter-spacing:-.055em;margin:20px 0 24px;max-width:760px}
+h1 span{background:linear-gradient(90deg,#fff 0%,#5ca5ff 62%,#2b77ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:650px;color:#d7e0ef;font-size:18px;line-height:1.65;margin:0 0 28px}
+.trust{display:flex;gap:28px;margin:26px 0 30px;flex-wrap:wrap}.trust-item{display:flex;gap:10px;align-items:center;color:#e8eef9;font-size:13px}.trust-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:rgba(24,120,255,.2);border:1px solid rgba(85,160,255,.35);color:#72b2ff;font-weight:800}
+.tg{display:inline-flex;align-items:center;gap:11px;background:linear-gradient(135deg,#1685ff,#0e5ef1);padding:15px 24px;border-radius:999px;font-weight:700;box-shadow:0 14px 35px rgba(12,95,240,.35)}
+.exchange{padding:25px;border:1px solid rgba(255,255,255,.20);border-radius:26px;background:linear-gradient(145deg,rgba(45,66,112,.76),rgba(10,19,42,.66));box-shadow:0 30px 80px rgba(0,0,0,.35);backdrop-filter:blur(22px);max-width:520px;margin-left:auto}
+.tabs{display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:14px;background:rgba(255,255,255,.08);margin-bottom:24px}.tab{border:0;background:transparent;color:#aeb9ce;padding:13px;border-radius:11px;cursor:pointer;font-weight:700}.tab.active{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(22,119,255,.3)}
+.field{margin:13px 0}.label{font-size:13px;color:#9eabc3;margin:0 0 8px}.inputbox{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12)}
+.coin{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;flex:none}.usdt{background:#22b98b}.rub{background:#e92b39}.btc{background:#f59a23}.eth{background:#6679ff}
+.inputbox input{min-width:0;flex:1;background:none;border:0;outline:0;color:#fff;font-size:20px;font-weight:700}.inputbox select{background:#23375e;color:#fff;border:0;border-radius:10px;padding:9px 10px;outline:0;font-weight:700}
+.swap{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:#1c2d50;color:#fff;display:block;margin:-3px auto -3px;cursor:pointer}
+.result{font-size:24px}.hint{font-size:12px;color:#9da9be;margin-top:7px}.primary{width:100%;border:0;background:linear-gradient(135deg,#1978ff,#075cf0);color:#fff;border-radius:15px;padding:15px;font-weight:800;cursor:pointer;margin-top:9px;box-shadow:0 12px 28px rgba(10,95,240,.3)}
+.lock{display:flex;justify-content:center;gap:7px;color:#8e9bb3;font-size:12px;margin-top:14px}
+.ticker{position:absolute;left:0;right:0;bottom:22px;z-index:4}.ticker-inner{display:grid;grid-template-columns:1.2fr repeat(4,1fr);background:rgba(5,12,25,.72);border:1px solid rgba(255,255,255,.16);border-radius:20px;backdrop-filter:blur(18px);overflow:hidden}.tick{padding:16px 19px;border-right:1px solid rgba(255,255,255,.10)}.tick:last-child{border:0}.tick small{color:#8f9bb1}.tick strong{display:block;margin-top:6px;font-size:17px}.up{color:#3de39b;font-size:12px;margin-top:3px}
+.section{padding:105px 0;background:#08101f}.section.alt{background:#0b1425}.section-title{text-align:center;max-width:720px;margin:0 auto 50px}.eyebrow{color:#5ea8ff;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:800}.section h2{font-family:Manrope;font-size:44px;letter-spacing:-.04em;margin:12px 0}.section-title p{color:#91a0b9;line-height:1.65}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{padding:28px;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(145deg,#101d35,#0c1628)}.card .big{font-size:42px;margin-bottom:18px}.card h3{font-family:Manrope;font-size:20px;margin:0 0 9px}.card p{color:#8e9bb2;line-height:1.6;margin:0}
+footer{padding:35px 0;color:#8190a9;border-top:1px solid rgba(255,255,255,.08);background:#060c16}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:13px}
+@media(max-width:980px){.navlinks{display:none}.hero-grid{grid-template-columns:1fr;gap:30px}.exchange{margin:0;max-width:620px}.ticker{position:relative;bottom:auto;padding-bottom:24px}.ticker-inner{grid-template-columns:repeat(2,1fr)}.tick:first-child{grid-column:1/-1}.hero{background-attachment:scroll}.cards{grid-template-columns:1fr}}
+@media(max-width:600px){.container{width:min(100% - 28px,1240px)}.nav{height:72px}.navcta{padding:10px 14px;font-size:13px}h1{font-size:43px}.lead{font-size:16px}.hero-grid{padding-top:40px}.exchange{padding:17px;border-radius:20px}.ticker-inner{grid-template-columns:1fr}.tick:first-child{grid-column:auto}.trust{gap:14px}.section{padding:75px 0}.section h2{font-size:34px}.foot{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<section class="hero" id="top">
+  <div class="container">
+    <header class="nav">
+      <a class="logo" href="#top"><span class="logo-mark"></span><span><b>ОБОРОТ</b><small>EXCHANGE</small></span></a>
+      <nav class="navlinks"><a href="#exchange">Обмен</a><a href="#rates">Курсы</a><a href="#why">Преимущества</a><a href="#faq">FAQ</a></nav>
+      <a class="navcta" href="https://t.me/Oborot_Ex" target="_blank" rel="noopener">Telegram ↗</a>
+    </header>
+
+    <div class="hero-grid">
+      <div>
+        <div class="badge"><i></i> Быстрый и безопасный обмен криптовалют</div>
+        <h1>Обмен криптовалют <span>по лучшему курсу</span></h1>
+        <p class="lead">Мгновенный обмен USDT, BTC, ETH и других криптовалют на наличные рубли. Надёжно. Выгодно. С личным менеджером.</p>
+        <div class="trust">
+          <div class="trust-item"><span class="trust-icon">✓</span> Безопасные сделки</div>
+          <div class="trust-item"><span class="trust-icon">ϟ</span> Быстрый обмен</div>
+          <div class="trust-item"><span class="trust-icon">◉</span> Поддержка 24/7</div>
+        </div>
+        <a class="tg" href="https://t.me/Oborot_Ex" target="_blank" rel="noopener">➤ &nbsp;Написать в Telegram&nbsp; →</a>
+      </div>
+
+      <div class="exchange" id="exchange">
+        <div class="tabs">
+          <button class="tab active" data-mode="buy">Покупка</button>
+          <button class="tab" data-mode="sell">Продажа</button>
+        </div>
+        <div class="field"><div class="label" id="giveLabel">Отдаёте</div>
+          <div class="inputbox"><span class="coin usdt">₮</span><select id="from"><option value="USDT">USDT TRC20</option><option value="BTC">BTC</option><option value="ETH">ETH</option></select><input id="fromAmount" type="number" value="1000" min="0" step="any"></div>
+        </div>
+        <button class="swap" id="swap" aria-label="Поменять местами">↕</button>
+        <div class="field"><div class="label">Получаете</div>
+          <div class="inputbox"><span class="coin rub">₽</span><select id="to"><option value="RUB">Наличные RUB</option></select><input class="result" id="toAmount" value="80596.49" readonly></div>
+          <div class="hint">Курс ориентировочный. Финальный курс фиксирует менеджер перед сделкой.</div>
+        </div>
+        <button class="primary" id="exchangeBtn">Обменять</button>
+        <div class="lock">▣ Курс фиксируется после подтверждения заявки</div>
+      </div>
+    </div>
+
+    <div class="ticker" id="rates">
+      <div class="ticker-inner">
+        <div class="tick"><small>АКТУАЛЬНЫЕ КУРСЫ</small><strong>Москва · USDT → RUB</strong><div class="up" id="sourceRate">Источник: City Exchange · ориентир</div></div>
+        <div class="tick"><small>USDT → RUB</small><strong id="usdtRate">80.5965 ₽</strong><div class="up">● обновляемая ставка</div></div>
+        <div class="tick"><small>BTC → RUB</small><strong>по запросу</strong><div class="up">● менеджер</div></div>
+        <div class="tick"><small>ETH → RUB</small><strong>по запросу</strong><div class="up">● менеджер</div></div>
+        <div class="tick"><small>Комиссия</small><strong>0 ₽*</strong><div class="up">*уточняется до сделки</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">Почему выбирают Оборот</div><h2>Просто, быстро и по делу</h2><p>Понятный интерфейс, актуальный ориентир по курсу и прямой контакт с менеджером.</p></div>
+    <div class="cards">
+      <article class="card"><div class="big">⚡</div><h3>Быстрый обмен</h3><p>Заявка отправляется в Telegram, после чего менеджер подтверждает детали и курс.</p></article>
+      <article class="card"><div class="big">₮</div><h3>Прозрачный курс</h3><p>До перевода вы знаете расчёт и условия. Финальный курс фиксируется перед сделкой.</p></article>
+      <article class="card"><div class="big">◉</div><h3>Личный менеджер</h3><p>Можно задать вопрос человеку и согласовать удобный способ получения средств.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="faq">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">Как проходит обмен</div><h2>Четыре простых шага</h2></div>
+    <div class="cards">
+      <article class="card"><div class="big">01</div><h3>Напишите в Telegram</h3><p>Укажите направление и сумму.</p></article>
+      <article class="card"><div class="big">02</div><h3>Получите расчёт</h3><p>Менеджер сообщает актуальный курс и сумму.</p></article>
+      <article class="card"><div class="big">03</div><h3>Подтвердите заявку</h3><p>После согласования получаете реквизиты и инструкции.</p></article>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container foot"><span>© 2026 Оборот Exchange · площадь Победы, 4, Калининград</span><span><a href="tel:+79528488610">+7 952 848 86 10</a> · <a href="https://t.me/Oborot_Ex">@Oborot_Ex</a></span></div></footer>
+
+<script>
+const RATE_USDT_RUB = 80.59649034284668; // ориентир из доступного снимка City Exchange; не считать live API.
+const fromAmount = document.querySelector('#fromAmount');
+const toAmount = document.querySelector('#toAmount');
+const from = document.querySelector('#from');
+const tabs = document.querySelectorAll('.tab');
+const modeLabel = document.querySelector('#giveLabel');
+
+function rateFor(symbol){
+  if(symbol==='USDT') return RATE_USDT_RUB;
+  if(symbol==='BTC') return null;
+  if(symbol==='ETH') return null;
+  return null;
+}
+function recalc(){
+  const r = rateFor(from.value);
+  const v = Number(fromAmount.value || 0);
+  toAmount.value = r ? (v*r).toLocaleString('ru-RU',{maximumFractionDigits:2}) : 'по запросу';
+}
+from.addEventListener('change', recalc);
+fromAmount.addEventListener('input', recalc);
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active')); t.classList.add('active');
+  modeLabel.textContent = t.dataset.mode==='buy' ? 'Отдаёте' : 'Получаете';
+}));
+document.querySelector('#swap').addEventListener('click',()=>{
+  const a=from.value; from.value='USDT'; recalc();
+});
+document.querySelector('#exchangeBtn').addEventListener('click',()=>{
+  const mode=document.querySelector('.tab.active').dataset.mode;
+  const amount=fromAmount.value||'0';
+  const text=encodeURIComponent(`Здравствуйте! Хочу ${mode==='buy'?'купить':'продать'} ${from.value} на сумму ${amount}. Подскажите актуальный курс и условия.`);
+  window.open('https://t.me/Oborot_Ex?text='+text,'_blank');
+});
+recalc();
+</script>
+</body>
+</html>
